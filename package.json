@@ -1,0 +1,46 @@
+{
+  "name": "my-phaser-game",
+  "version": "1.0.0",
+  "description": "A 2D game built with Phaser.js and Electron for Steam",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish=never"
+  },
+  "keywords": ["game", "phaser", "electron", "steam"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "phaser": "^3.70.0"
+  },
+  "build": {
+    "appId": "com.yourname.myphasergame",
+    "productName": "My Phaser Game",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "node_modules/phaser/dist/phaser.min.js"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  }
+}
